@@ -1,4 +1,4 @@
-package org.metrotransit.guide.svc;
+package org.metrotransit.guide;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.Sets;
@@ -15,12 +15,13 @@ import org.apache.http.util.EntityUtils;
 import org.metrotransit.guide.model.Direction;
 import org.metrotransit.guide.model.Route;
 import org.metrotransit.guide.model.Stop;
-import org.metrotransit.guide.model.TimepointDepartures;
+import org.metrotransit.guide.model.TimepointDeparture;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class SimpleClient {
@@ -101,16 +102,16 @@ public class SimpleClient {
         return Sets.newHashSet();
     }
 
-    public static Set<TimepointDepartures> getTimepointDepartures(Integer routeNumber, Integer direction, String stopIdentifier) {
+    public static Set<TimepointDeparture> getTimepointDepartures(Integer routeNumber, Integer direction, String stopIdentifier) {
 
         HttpGet getRequest = new HttpGet(TIMEPOINT_DEPARTURES_API + routeNumber + SEPARATOR + direction + SEPARATOR + stopIdentifier);
         String responseJson = getResponseJson(getRequest);
 
         if (StringUtils.isNotBlank(responseJson)) {
             try {
-                return (Set<TimepointDepartures>) objectMapper.readValue(responseJson, objectMapper.getTypeFactory().constructCollectionType(Set.class, TimepointDepartures.class));
+                return (LinkedHashSet<TimepointDeparture>) objectMapper.readValue(responseJson, objectMapper.getTypeFactory().constructCollectionType(LinkedHashSet.class, TimepointDeparture.class));
             } catch (Exception e) {
-                LOGGER.error("Unable to get TimepointDepartures: {}", e.getMessage());
+                LOGGER.error("Unable to get TimepointDeparture: {}", e.getMessage());
             }
         }
         return Sets.newHashSet();

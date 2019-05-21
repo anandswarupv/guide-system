@@ -68,4 +68,12 @@ public class Route implements Serializable
         return this;
     }
 
+    @Override
+    public String toString() {
+        return "Route{" +
+                "description='" + description + '\'' +
+                ", providerID=" + providerID +
+                ", route=" + route +
+                '}';
+    }
 }

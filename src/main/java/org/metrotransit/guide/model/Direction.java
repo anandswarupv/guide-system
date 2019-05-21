@@ -50,4 +50,11 @@ public class Direction implements Serializable
         return this;
     }
 
+    @Override
+    public String toString() {
+        return "Direction{" +
+                "text='" + text + '\'' +
+                ", value=" + value +
+                '}';
+    }
 }

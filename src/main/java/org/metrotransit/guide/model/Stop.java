@@ -50,4 +50,11 @@ public class Stop implements Serializable
         return this;
     }
 
+    @Override
+    public String toString() {
+        return "Stop{" +
+                "text='" + text + '\'' +
+                ", value='" + value + '\'' +
+                '}';
+    }
 }

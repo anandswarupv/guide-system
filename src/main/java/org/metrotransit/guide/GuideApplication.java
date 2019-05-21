@@ -3,8 +3,7 @@ package org.metrotransit.guide;
 import org.metrotransit.guide.model.Direction;
 import org.metrotransit.guide.model.Route;
 import org.metrotransit.guide.model.Stop;
-import org.metrotransit.guide.model.TimepointDepartures;
-import org.metrotransit.guide.svc.SimpleClient;
+import org.metrotransit.guide.model.TimepointDeparture;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -43,10 +42,13 @@ public class GuideApplication {
 
                 if (searchedStop.isPresent()) {
                     LOGGER.trace("Found Stop: {}", searchedStop.get());
-                    Set<TimepointDepartures> timepointDepartures = SimpleClient.getTimepointDepartures(searchedRoute.get().getRoute(), searchedDirection.get().getValue(), searchedStop.get().getValue());
+                    Set<TimepointDeparture> timepointDepartures = SimpleClient.getTimepointDepartures(searchedRoute.get().getRoute(), searchedDirection.get().getValue(), searchedStop.get().getValue());
 
                     if (!timepointDepartures.isEmpty()) {
                         LOGGER.info(timepointDepartures.toString());
+
+                        TimepointDeparture timepointDeparture = timepointDepartures.stream().findFirst().get();
+                        System.out.println(timepointDeparture.getDepartureTime());
                     }
                 }
             }

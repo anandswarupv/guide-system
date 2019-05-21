@@ -10,5 +10,10 @@ public class GuideApplicationTest {
         GuideApplication.main(args);
     }
 
+    @Test
+    public void testForLightRail() {
+        String[] args = {"METRO Blue Line", "Target Field Station Platform 1", "south"};
+        GuideApplication.main(args);
+    }
 
 }
