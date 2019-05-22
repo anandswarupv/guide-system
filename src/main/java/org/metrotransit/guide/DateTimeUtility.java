@@ -12,6 +12,20 @@ class DateTimeUtility {
         long diffMinutes = difference / (60 * 1000) % 60;
         long diffHours = difference / (60 * 60 * 1000) % 24;
 
-        return diffHours + " hours, " + diffMinutes + " minutes, " + diffSeconds + " seconds";
+        String response = "";
+
+        if (diffHours > 0) {
+            response = response.concat(diffHours + " hour(s) ");
+        }
+
+        if (diffMinutes > 0) {
+            response =  response.concat(diffMinutes + " min(s) ");
+        }
+
+        if (diffSeconds > 0) {
+            response =  response.concat(diffSeconds + " sec(s)");
+        }
+
+        return response;
     }
 }

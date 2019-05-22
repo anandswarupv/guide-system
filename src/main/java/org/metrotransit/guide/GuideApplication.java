@@ -18,8 +18,10 @@ public class GuideApplication {
     public static void main(String[] args) {
 
         if (args.length < 3) {
-            LOGGER.info("Not enough information available to find the route details!");
+            LOGGER.debug("Not enough inputs available to find the route details!");
             LOGGER.info("Please enter BUS ROUTE, BUS STOP NAME & DIRECTION");
+            System.out.println("Please enter BUS ROUTE, BUS STOP NAME & DIRECTION");
+            return;
         }
 
         Set<Route> allRoutes = SimpleClient.getAllRoutes();
@@ -50,8 +52,8 @@ public class GuideApplication {
                         optionalTimepointDeparture.ifPresent(timepointDeparture -> {
                             LOGGER.trace(timepointDepartures.toString());
                             String differenceFromCurrentTime = DateTimeUtility.getDifferenceFromCurrentTime(timepointDeparture.getDepartureTime());
-                            LOGGER.debug("Time to next bus:: " + differenceFromCurrentTime);
-                            System.out.println("Time to next bus:: " + differenceFromCurrentTime);
+                            LOGGER.debug(differenceFromCurrentTime);
+                            System.out.println(differenceFromCurrentTime);
                         });
                     }
                 }
