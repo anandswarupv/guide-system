@@ -11,7 +11,7 @@ import java.util.Optional;
 import java.util.Set;
 
 
-public class GuideApplication {
+public class Application {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SimpleClient.class);
 
