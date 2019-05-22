@@ -3,6 +3,9 @@ package org.metrotransit.guide.model;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.google.common.base.Splitter;
+import com.google.common.collect.Iterables;
+import org.apache.commons.lang3.StringUtils;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
@@ -78,7 +81,10 @@ public class TimepointDeparture {
 
     @JsonProperty("DepartureTime")
     public String getDepartureTime() {
-        return departureTime;
+        String substring = StringUtils.substring(departureTime,
+                StringUtils.indexOf(departureTime, "(") + 1,
+                StringUtils.indexOf(departureTime, ")"));
+        return Iterables.getFirst(Splitter.on("-").split(substring), "0");
     }
 
     @JsonProperty("DepartureTime")

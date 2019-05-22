@@ -111,7 +111,7 @@ public class SimpleClient {
             try {
                 return (LinkedHashSet<TimepointDeparture>) objectMapper.readValue(responseJson, objectMapper.getTypeFactory().constructCollectionType(LinkedHashSet.class, TimepointDeparture.class));
             } catch (Exception e) {
-                LOGGER.error("Unable to get TimepointDeparture: {}", e.getMessage());
+                LOGGER.error("Unable to get TimepointDepartures: {}", e.getMessage());
             }
         }
         return Sets.newHashSet();

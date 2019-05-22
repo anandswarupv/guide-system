@@ -45,10 +45,14 @@ public class GuideApplication {
                     Set<TimepointDeparture> timepointDepartures = SimpleClient.getTimepointDepartures(searchedRoute.get().getRoute(), searchedDirection.get().getValue(), searchedStop.get().getValue());
 
                     if (!timepointDepartures.isEmpty()) {
-                        LOGGER.info(timepointDepartures.toString());
+                        Optional<TimepointDeparture> optionalTimepointDeparture = timepointDepartures.stream().findFirst();
 
-                        TimepointDeparture timepointDeparture = timepointDepartures.stream().findFirst().get();
-                        System.out.println(timepointDeparture.getDepartureTime());
+                        optionalTimepointDeparture.ifPresent(timepointDeparture -> {
+                            LOGGER.trace(timepointDepartures.toString());
+                            String differenceFromCurrentTime = DateTimeUtility.getDifferenceFromCurrentTime(timepointDeparture.getDepartureTime());
+                            LOGGER.debug("Time to next bus:: " + differenceFromCurrentTime);
+                            System.out.println("Time to next bus:: " + differenceFromCurrentTime);
+                        });
                     }
                 }
             }

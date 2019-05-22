@@ -16,4 +16,9 @@ public class GuideApplicationTest {
         GuideApplication.main(args);
     }
 
+    @Test
+    public void testDateTimeUtility() {
+        System.out.println(DateTimeUtility.getDifferenceFromCurrentTime("1558496400000"));
+    }
+
 }
