@@ -8,7 +8,7 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>guide</name>
+    <name>guide-system</name>
     <description>Guide System to the Metro Transit</description>
 
     <properties>

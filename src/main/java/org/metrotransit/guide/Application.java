@@ -13,7 +13,7 @@ import java.util.Set;
 
 public class Application {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(SimpleClient.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(Application.class);
 
     public static void main(String[] args) {
 
@@ -52,7 +52,7 @@ public class Application {
                         optionalTimepointDeparture.ifPresent(timepointDeparture -> {
                             LOGGER.trace(timepointDepartures.toString());
                             String differenceFromCurrentTime = DateTimeUtility.getDifferenceFromCurrentTime(timepointDeparture.getDepartureTime());
-                            LOGGER.debug(differenceFromCurrentTime);
+                            LOGGER.info(differenceFromCurrentTime);
                             System.out.println(differenceFromCurrentTime);
                         });
                     }

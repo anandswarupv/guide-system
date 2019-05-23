@@ -14,7 +14,7 @@ The guide-system will tell you how long it is until the next bus on “BUS ROUTE
 2. Internet connection 
 
 ##### **Steps to run the Application**
-1. Build the project: `mvn clean install`
+1. Build the project: `mvn clean install -Dmaven.test.skip=true`
 2. Run using the jar created in the target folder
 
 `java -jar target/guide-system-1.0-SNAPSHOT-jar-with-dependencies.jar "METRO Blue Line" "Target Field Station Platform 1" "south"`

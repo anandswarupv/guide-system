@@ -16,10 +16,10 @@
             </pattern>
         </encoder>
     </appender>
-    <logger name="org.metrotransit.guide" level="ERROR"/>
+    <logger name="org.metrotransit.guide" level="DEBUG"/>
 
     <root level="debug">
-        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="FILE"/>
     </root>
 
 </configuration>
