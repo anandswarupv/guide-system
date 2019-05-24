@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/anandswarupv/guide-system.svg?branch=master)](https://travis-ci.com/anandswarupv/guide-system)
+
 # guide-system
 Metro transit Guide System backed by http://svc.metrotransit.org/
 
