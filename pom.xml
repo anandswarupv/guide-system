@@ -33,9 +33,9 @@
             <version>2.9.9</version>
         </dependency>
         <dependency>
-            <groupId>com.google.common</groupId>
+            <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>15.0</version>
+            <version>27.0-jre</version>
         </dependency>
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
